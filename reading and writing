@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    FILE *fptr;
+    char text[100];
+
+    // Writing to a file
+    fptr = fopen("example.txt", "w");
+    if (fptr == NULL) exit(1);
+    fprintf(fptr, "C programming is powerful!");
+    fclose(fptr);
+
+    // Reading from the same file
+    fptr = fopen("example.txt", "r");
+    if (fptr == NULL) exit(1);
+    fgets(text, 100, fptr);
+    printf("Data from file: %s\n", text);
+    fclose(fptr);
+
+    return 0;
+}
